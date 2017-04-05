@@ -4,6 +4,24 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
+        <Menu class="javax.swing.JMenu" name="jMenu1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Activo"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="mnuItemAssets">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Administrar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuItemAssetsActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="MenuUser">
           <Properties>
             <Property name="text" type="java.lang.String" value="Usuario"/>
@@ -12,7 +30,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="mnuItemListEditUsers">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+A"/>
+                  <KeyStroke key="Ctrl+U"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Administrar"/>
               </Properties>
@@ -30,7 +48,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="mnuItemManageDep">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+S"/>
+                  <KeyStroke key="Ctrl+D"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Administrar"/>
               </Properties>
@@ -48,7 +66,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="mnuItemSessions">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+D"/>
+                  <KeyStroke key="Ctrl+S"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sesiones"/>
               </Properties>

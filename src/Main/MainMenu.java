@@ -58,6 +58,8 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
         lblLogoProd = new javax.swing.JLabel();
         lblBackground = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        mnuItemAssets = new javax.swing.JMenuItem();
         MenuUser = new javax.swing.JMenu();
         mnuItemListEditUsers = new javax.swing.JMenuItem();
         MenuDepartment = new javax.swing.JMenu();
@@ -119,9 +121,22 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
         jLayeredPane1.add(lblBackground);
         lblBackground.setBounds(0, 0, 2002, 1130);
 
+        jMenu1.setText("Activo");
+
+        mnuItemAssets.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        mnuItemAssets.setText("Administrar");
+        mnuItemAssets.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuItemAssetsActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnuItemAssets);
+
+        jMenuBar1.add(jMenu1);
+
         MenuUser.setText("Usuario");
 
-        mnuItemListEditUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        mnuItemListEditUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
         mnuItemListEditUsers.setText("Administrar");
         mnuItemListEditUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,7 +149,7 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
 
         MenuDepartment.setText("Departamento");
 
-        mnuItemManageDep.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        mnuItemManageDep.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         mnuItemManageDep.setText("Administrar");
         mnuItemManageDep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +162,7 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
 
         MenuReports.setText("Reporte");
 
-        mnuItemSessions.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        mnuItemSessions.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         mnuItemSessions.setText("Sesiones");
         mnuItemSessions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +280,10 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
         JOptionPane.showMessageDialog(null, "Esta función se encuentra en desarrollo.");
     }//GEN-LAST:event_mnuItemRepAssetActionPerformed
 
+    private void mnuItemAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemAssetsActionPerformed
+        
+    }//GEN-LAST:event_mnuItemAssetsActionPerformed
+
     private void setIcon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("UIElements/icon.png")));
     }
@@ -307,12 +326,14 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     private javax.swing.JMenu MenuReports;
     private javax.swing.JMenu MenuUser;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblBackground;
     private javax.swing.JLabel lblLogoLatina;
     private javax.swing.JLabel lblLogoProd;
     private javax.swing.JLabel lblLogoProdImg;
     private javax.swing.JLabel lblSession;
+    private javax.swing.JMenuItem mnuItemAssets;
     private javax.swing.JMenuItem mnuItemExit;
     private javax.swing.JMenuItem mnuItemListEditUsers;
     private javax.swing.JMenuItem mnuItemLogOut;
