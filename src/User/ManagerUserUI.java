@@ -2,7 +2,6 @@ package User;
 
 import Connection.DataBaseConnection;
 import Connection.Encryption;
-//import User.ManageUser;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
@@ -62,6 +61,7 @@ public class ManagerUserUI extends DataBaseConnection {
         rd.getTextAddress().setText("");
         rd.getFieldEmail().setText("");
         rd.getFieldPassword().setText("");
+        rd.getComboRole().setSelectedIndex(0);
     }
     
     void UploadData(ManageUser rd){

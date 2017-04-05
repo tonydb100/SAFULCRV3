@@ -1,5 +1,6 @@
 package Main;
 
+import Asset.ManageAsset;
 import Department.ManageDepartment;
 import Login.LoginDialog;
 import Login.ManagerLoginUI;
@@ -16,7 +17,7 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     public MainMenu() {
         initComponents();
         setLocationRelativeTo(null);
-        setResizable(false);
+//        setResizable(false);
         setIcon();
         addComponentListener(this);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -281,7 +282,8 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     }//GEN-LAST:event_mnuItemRepAssetActionPerformed
 
     private void mnuItemAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemAssetsActionPerformed
-        
+        ManageAsset ma = new ManageAsset();
+        ma.show();
     }//GEN-LAST:event_mnuItemAssetsActionPerformed
 
     private void setIcon() {

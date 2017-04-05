@@ -32,6 +32,7 @@ public class ManagerDepartmentUI extends DataBaseConnection {
     void Clear(ManageDepartment rd){
         rd.getFldNameDepartment().setText("");
         rd.getTxtDetail().setText("");
+        rd.getCmbHead().setSelectedIndex(0);
     }
     
     void UploadData(ManageDepartment rd){

@@ -18,6 +18,36 @@ USE `mydb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `asset`
+--
+
+DROP TABLE IF EXISTS `asset`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `asset` (
+  `asset_id` int(11) NOT NULL AUTO_INCREMENT,
+  `asset_name` varchar(45) NOT NULL,
+  `asset_department` varchar(45) NOT NULL,
+  `asset_headquarter` varchar(45) NOT NULL,
+  `asset_code` varchar(45) NOT NULL,
+  `asset_registrationDate` varchar(45) NOT NULL,
+  `asset_user` varchar(45) NOT NULL,
+  `asset_description` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`asset_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `asset`
+--
+
+LOCK TABLES `asset` WRITE;
+/*!40000 ALTER TABLE `asset` DISABLE KEYS */;
+INSERT INTO `asset` VALUES (1,'SILLA','SELECCIONE DEPARTAMENTO','SELECCIONE SEDE','S23','04/04/2017 23:45:20','amorales','SENCILLA'),(2,'MESA','ADMINISTRACION','SAN PEDRO','M54','04/04/2017 23:48:37','','MESA LARGA 2M');
+/*!40000 ALTER TABLE `asset` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `department`
 --
 
@@ -31,7 +61,7 @@ CREATE TABLE `department` (
   `department_headquarter` varchar(45) NOT NULL,
   `department_registrationDate` varchar(45) NOT NULL,
   PRIMARY KEY (`department_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +70,7 @@ CREATE TABLE `department` (
 
 LOCK TABLES `department` WRITE;
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` VALUES (2,'ADMINISTRACION','AREA ADMINISTRATIVA','HEREDIA','09/03/2017 11:06:50'),(3,'CONTABILIDAD','DEPARTAMENTO CONTABLE','SAN PEDRO','09/03/2017 11:34:36');
+INSERT INTO `department` VALUES (2,'ADMINISTRACION','AREA ADMINISTRATIVA','HEREDIA','09/03/2017 11:06:50'),(3,'CONTABILIDAD','DEPARTAMENTO CONTABLE','SAN PEDRO','09/03/2017 11:34:36'),(7,'VXCV','','HEREDIA','23/03/2017 23:06:39');
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +85,7 @@ CREATE TABLE `role` (
   `role_id` int(11) NOT NULL AUTO_INCREMENT,
   `role_name` varchar(45) NOT NULL,
   PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +94,7 @@ CREATE TABLE `role` (
 
 LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'ADMIN'),(2,'USER');
+INSERT INTO `role` VALUES (1,'ADMIN'),(2,'USER'),(3,'ADMIN');
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,7 +111,7 @@ CREATE TABLE `session` (
   `session_start` varchar(45) NOT NULL,
   `session_end` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`session_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +120,7 @@ CREATE TABLE `session` (
 
 LOCK TABLES `session` WRITE;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
-INSERT INTO `session` VALUES (1,'amorales','09/03/2017 13:03:45',NULL),(2,'amorales','09/03/2017 13:22:11',NULL),(3,'sakly','09/03/2017 13:22:23',NULL),(4,'sakly','09/03/2017 13:26:14',NULL),(5,'sakly','09/03/2017 13:27:37',NULL),(6,'sakly','09/03/2017 13:33:22',NULL),(7,'amorales','09/03/2017 13:33:46',NULL);
+INSERT INTO `session` VALUES (1,'amorales','09/03/2017 13:03:45','final'),(2,'amorales','09/03/2017 13:22:11','final'),(3,'sakly','09/03/2017 13:22:23','final'),(4,'sakly','09/03/2017 13:26:14','final'),(5,'sakly','09/03/2017 13:27:37','final'),(6,'sakly','09/03/2017 13:33:22','final'),(7,'amorales','09/03/2017 13:33:46','final'),(8,'amorales','09/03/2017 21:12:04','final'),(9,'sakly','09/03/2017 21:12:18','final'),(10,'sakly','09/03/2017 21:22:17','final'),(11,'amorales','20/03/2017 23:23:06','final'),(12,'amorales','20/03/2017 23:48:07','final'),(13,'amorales','20/03/2017 23:50:46','final'),(14,'amorales','20/03/2017 23:52:20','final'),(15,'amorales','20/03/2017 23:59:26','finally'),(16,'sakly','21/03/2017 22:40:19','finallys'),(17,'amorales','21/03/2017 22:47:17',NULL),(18,'amorales','21/03/2017 22:50:23','finallys'),(19,'amorales','21/03/2017 22:55:00','21/03/2017 22:55:10'),(20,'amorales','21/03/2017 22:57:55','21/03/2017 22:58:02'),(21,'sakly','21/03/2017 23:00:35','21/03/2017 23:00:41'),(22,'amorales','21/03/2017 23:02:11','21/03/2017 23:02:18'),(23,'amorales','23/03/2017 21:59:23','23/03/2017 21:59:59'),(24,'amorales','23/03/2017 22:28:51',NULL),(25,'amorales','23/03/2017 22:30:48','23/03/2017 22:37:36'),(26,'amorales','23/03/2017 22:37:53',NULL),(27,'amorales','23/03/2017 22:49:30',NULL),(28,'amorales','23/03/2017 22:53:55',NULL),(29,'amorales','23/03/2017 23:07:06','23/03/2017 23:07:53'),(30,'amorales','23/03/2017 23:09:33',NULL),(31,'amorales','04/04/2017 20:20:19',NULL),(32,'amorales','04/04/2017 20:25:42',NULL),(33,'amorales','04/04/2017 23:34:44','04/04/2017 23:36:35'),(34,'amorales','04/04/2017 23:36:47',NULL),(35,'amorales','04/04/2017 23:38:50',NULL),(36,'amorales','04/04/2017 23:39:32',NULL),(37,'amorales','04/04/2017 23:45:01',NULL),(38,'amorales','04/04/2017 23:48:00','04/04/2017 23:48:46');
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +146,7 @@ CREATE TABLE `user` (
   `user_password` varchar(45) NOT NULL,
   `user_registrationDate` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -138,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-09 13:37:50
+-- Dump completed on 2017-04-04 23:49:23
