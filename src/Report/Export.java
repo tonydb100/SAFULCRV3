@@ -40,8 +40,8 @@ public class Export {
                     for (int j = 0; j < table.getRowCount(); j++) {
                         Object objeto = table.getValueAt(j, i);
 
-                        createColumna(s,table.getColumnName(i),i);//crea la columna
-                        createFilas(s,i,j,String.valueOf(objeto));//crea las filas
+                        createColumn(s,table.getColumnName(i),i);
+                        createRow(s,i,j+1,String.valueOf(objeto));
 
                     }
                 }
@@ -58,57 +58,42 @@ public class Export {
         }
         return false;
     }
-    private void createColumna(WritableSheet sheet,String columna,int number_columna)throws WriteException {
-        //creamos el tipo de letra
+    private void createColumn(WritableSheet sheet,String columna,int number_columna)throws WriteException {
+        
         WritableFont times10pt = new WritableFont(WritableFont.TAHOMA, 14);
-        // definimos el formato d ela celda
-        WritableCellFormat	times = new WritableCellFormat(times10pt);
-        // Permite si se ajusta autom�ticamente a las c�lulas
-        //times.setWrap(true);
-        // crea una negrita con subrayado
-        WritableFont times10ptBoldUnderline = new WritableFont(WritableFont.TAHOMA, 11, WritableFont.BOLD, false,UnderlineStyle.SINGLE);
+        WritableCellFormat times = new WritableCellFormat(times10pt);
+        WritableFont times10ptBoldUnderline = new WritableFont(WritableFont.TAHOMA, 11, WritableFont.BOLD, false);
         fomato_columna = new WritableCellFormat(times10ptBoldUnderline);
-        // Permite que se ajusta autom�ticamente a las c�lulas
-        //fomato_columna.setWrap(true);
         CellView cevell = new CellView();
         cevell.setSize(920);
         cevell.setDimension(70);
         cevell.setFormat(times);
         cevell.setFormat(fomato_columna);
-        //cevell.setAutosize(true);
-        // escribimos las columnas
-        addColumna(sheet, number_columna, 0, columna,fomato_columna);//numero de columna , 0 es la fila
+        addColumn(sheet, number_columna, 0, columna,fomato_columna);
+        
     }
-    /****************************************/
-    private void createFilas(WritableSheet sheet,int number_columna,int filas,String name_filas)throws WriteException {
-        //creamos el tipo de letra
+    
+    private void createRow(WritableSheet sheet,int number_columna,int filas,String name_filas)throws WriteException {
+        
         WritableFont times10pt = new WritableFont(WritableFont.ARIAL, 12);
         times10pt.setColour(Colour.GOLD);
-        // definimos el formato d ela celda
         WritableCellFormat	times = new WritableCellFormat(times10pt);
-        times.setBorder(Border.TOP, BorderLineStyle.MEDIUM, Colour.GOLD);
-        // Permite si se ajusta autom�ticamente a las c�lulas
-        //times.setWrap(true);
-        // crea una negrita con subrayado
-        WritableFont times10ptBoldUnderline = new WritableFont(WritableFont.ARIAL, 12, WritableFont.NO_BOLD, false,UnderlineStyle.NO_UNDERLINE);
+        times.setBorder(Border.TOP, BorderLineStyle.MEDIUM, Colour.GOLD);WritableFont times10ptBoldUnderline = new WritableFont(WritableFont.ARIAL, 12, WritableFont.NO_BOLD, false,UnderlineStyle.NO_UNDERLINE);
         fomato_fila = new WritableCellFormat(times10ptBoldUnderline);
-        // Permite que se ajusta autom�ticamente a las c�lulas
-        //fomato_fila.setWrap(true);
         CellView cevell = new CellView();
         cevell.setDimension(70);
         cevell.setFormat(times);
         cevell.setFormat(fomato_fila);
-        //cevell.setAutosize(true);
-        // escribimos las columnas
-        addFilas(sheet, number_columna, filas, name_filas,fomato_fila);
+        addRow(sheet, number_columna, filas, name_filas,fomato_fila);
+        
     }
 
-    private void addColumna(WritableSheet sheet, int column, int row, String s,WritableCellFormat format)throws RowsExceededException, WriteException {
+    private void addColumn(WritableSheet sheet, int column, int row, String s,WritableCellFormat format)throws RowsExceededException, WriteException {
         Label label;
         label = new Label(column, row, s, format);
         sheet.addCell(label);
     }
-    private void addFilas(WritableSheet sheet, int column, int row, String s,WritableCellFormat format)throws WriteException, RowsExceededException {
+    private void addRow(WritableSheet sheet, int column, int row, String s,WritableCellFormat format)throws WriteException, RowsExceededException {
         Label label;
         label = new Label(column, row, s, format);
         sheet.addCell(label);

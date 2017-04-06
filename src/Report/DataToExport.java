@@ -9,27 +9,20 @@ import java.util.Vector;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import jxl.read.biff.BiffException;
 
 public class DataToExport extends javax.swing.JFrame {
 
-    private JFileChooser FileChooser=new JFileChooser(); 
+//    private JFileChooser FileChooser=new JFileChooser(); 
     Vector columna = new Vector(); 
     Vector filas = new  Vector();  
     static int tabla_ancho = 0; 
     static int tabla_alto = 0; 
     
-    UploadData u = new UploadData(); //Para usar los métodos de carga de tabla
     
     public DataToExport() {
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
-//        u.UploadDataAsset(this);
-        //Cargar la table de acuerdo al tipo de reporte que se selecciona
     }
 
     public JTable getTblData() {
@@ -81,32 +74,31 @@ public class DataToExport extends javax.swing.JFrame {
         DialogSearch.getContentPane().setLayout(DialogSearchLayout);
         DialogSearchLayout.setHorizontalGroup(
             DialogSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DialogSearchLayout.createSequentialGroup()
-                .addGroup(DialogSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DialogSearchLayout.createSequentialGroup()
+                .addContainerGap(37, Short.MAX_VALUE)
+                .addGroup(DialogSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(DialogSearchLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSaveFile)
-                        .addGap(26, 26, 26)
+                        .addGap(18, 18, 18)
                         .addComponent(btnCancelDialog))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, DialogSearchLayout.createSequentialGroup()
-                        .addContainerGap()
+                    .addGroup(DialogSearchLayout.createSequentialGroup()
                         .addComponent(fldPath, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnBrowse)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
         DialogSearchLayout.setVerticalGroup(
             DialogSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DialogSearchLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(34, 34, 34)
                 .addGroup(DialogSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fldPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBrowse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                    .addComponent(btnBrowse)
+                    .addComponent(fldPath, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(DialogSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSaveFile)
                     .addComponent(btnCancelDialog))
-                .addGap(31, 31, 31))
+                .addGap(16, 16, 16))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -145,7 +137,7 @@ public class DataToExport extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 788, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnExport)
@@ -157,12 +149,12 @@ public class DataToExport extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnExport)
                     .addComponent(btnClose))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -193,12 +185,12 @@ public class DataToExport extends javax.swing.JFrame {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        llama_excel();
+        this.OpenExcel();
         this.DialogSearch.dispose();
     }//GEN-LAST:event_btnSaveFileActionPerformed
 
     private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
-        this.llamarJDialogExcel();
+        this.CallDialog();
     }//GEN-LAST:event_btnExportActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -209,7 +201,7 @@ public class DataToExport extends javax.swing.JFrame {
         this.DialogSearch.dispose();
     }//GEN-LAST:event_btnCancelDialogActionPerformed
 
-    private void llamarJDialogExcel() {
+    private void CallDialog() {
         this.DialogSearch.setLocationRelativeTo(null);
         this.DialogSearch.setModal(true);
         this.DialogSearch.setMinimumSize(new Dimension(393, 190));
@@ -217,7 +209,7 @@ public class DataToExport extends javax.swing.JFrame {
         this.DialogSearch.setVisible(true);
     }
     
-    public void llama_excel() {
+    public void OpenExcel() {
         try {
             Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler "+this.fldPath.getText()+".xls");
         } catch (IOException e) {
@@ -225,36 +217,36 @@ public class DataToExport extends javax.swing.JFrame {
         }
     }
     
-    public void CrearTabla(File file) throws IOException {
-		
-        Workbook workbook = null;
-
-        try { 
-            workbook = Workbook.getWorkbook(file); 	
-
-            Sheet sheet = workbook.getSheet(0); 
-            columna.clear(); 
-
-            for (int i = 0; i < sheet.getColumns(); i++) { 
-                Cell cell1 = sheet.getCell(i, 0);
-                columna.add(cell1.getContents()); 
-            } 
-            filas.clear(); 
-
-            for (int j = 1; j < sheet.getRows(); j++) {
-                Vector d = new Vector(); 
-                for (int i = 0; i < sheet.getColumns(); i++) {
-
-                        Cell cell = sheet.getCell(i, j); 
-                        d.add(cell.getContents());
-                }
-                d.add("\n");
-                filas.add(d); 
-            } 
-        } catch (BiffException e) { 
-            e.printStackTrace(); 
-        }
-    }
+//    public void CreateTable(File file) throws IOException {
+//		
+//        Workbook workbook = null;
+//
+//        try { 
+//            workbook = Workbook.getWorkbook(file); 	
+//
+//            Sheet sheet = workbook.getSheet(0); 
+//            columna.clear(); 
+//
+//            for (int i = 0; i < sheet.getColumns(); i++) { 
+//                Cell cell1 = sheet.getCell(i, 0);
+//                columna.add(cell1.getContents()); 
+//            } 
+//            filas.clear(); 
+//
+//            for (int j = 1; j < sheet.getRows(); j++) {
+//                Vector d = new Vector(); 
+//                for (int i = 0; i < sheet.getColumns(); i++) {
+//
+//                        Cell cell = sheet.getCell(i, j); 
+//                        d.add(cell.getContents());
+//                }
+//                d.add("\n");
+//                filas.add(d); 
+//            } 
+//        } catch (BiffException e) { 
+//            e.printStackTrace(); 
+//        }
+//    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

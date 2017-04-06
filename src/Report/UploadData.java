@@ -4,7 +4,6 @@ import Connection.DataBaseConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class UploadData extends DataBaseConnection {
