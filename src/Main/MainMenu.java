@@ -4,24 +4,26 @@ import Asset.ManageAsset;
 import Department.ManageDepartment;
 import Login.LoginDialog;
 import Login.ManagerLoginUI;
+import Report.DataToExport;
+import Report.UploadData;
 import User.*;
 import java.awt.Toolkit;
 import java.awt.event.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
-import javax.swing.JOptionPane;
 
 public class MainMenu extends javax.swing.JFrame implements ComponentListener {
 
+        
     public MainMenu() {
         initComponents();
         setLocationRelativeTo(null);
-//        setResizable(false);
         setIcon();
         addComponentListener(this);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+    
 
     public JLabel getLblSession() {
         return lblSession;
@@ -66,8 +68,8 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
         MenuDepartment = new javax.swing.JMenu();
         mnuItemManageDep = new javax.swing.JMenuItem();
         MenuReports = new javax.swing.JMenu();
-        mnuItemSessions = new javax.swing.JMenuItem();
-        mnuItemReports = new javax.swing.JMenuItem();
+        mnuItemRepSessions = new javax.swing.JMenuItem();
+        mnuItemRepDepartment = new javax.swing.JMenuItem();
         mnuItemRepUser = new javax.swing.JMenuItem();
         mnuItemRepAsset = new javax.swing.JMenuItem();
         MenuOptions = new javax.swing.JMenu();
@@ -163,23 +165,23 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
 
         MenuReports.setText("Reporte");
 
-        mnuItemSessions.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        mnuItemSessions.setText("Sesiones");
-        mnuItemSessions.addActionListener(new java.awt.event.ActionListener() {
+        mnuItemRepSessions.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        mnuItemRepSessions.setText("Sesiones");
+        mnuItemRepSessions.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuItemSessionsActionPerformed(evt);
+                mnuItemRepSessionsActionPerformed(evt);
             }
         });
-        MenuReports.add(mnuItemSessions);
+        MenuReports.add(mnuItemRepSessions);
 
-        mnuItemReports.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        mnuItemReports.setText("Departamentos");
-        mnuItemReports.addActionListener(new java.awt.event.ActionListener() {
+        mnuItemRepDepartment.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        mnuItemRepDepartment.setText("Departamentos");
+        mnuItemRepDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuItemReportsActionPerformed(evt);
+                mnuItemRepDepartmentActionPerformed(evt);
             }
         });
-        MenuReports.add(mnuItemReports);
+        MenuReports.add(mnuItemRepDepartment);
 
         mnuItemRepUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_MASK));
         mnuItemRepUser.setText("Usuarios");
@@ -250,13 +252,19 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
         rd.show();
     }//GEN-LAST:event_mnuItemManageDepActionPerformed
 
-    private void mnuItemSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemSessionsActionPerformed
-        JOptionPane.showMessageDialog(null, "Esta función se encuentra en desarrollo.");
-    }//GEN-LAST:event_mnuItemSessionsActionPerformed
+    private void mnuItemRepSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepSessionsActionPerformed
+        UploadData u = new UploadData();
+        u.UploadData(1);
+//        DataToExport d = new DataToExport();
+//        d.show();
+    }//GEN-LAST:event_mnuItemRepSessionsActionPerformed
 
-    private void mnuItemReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemReportsActionPerformed
-        JOptionPane.showMessageDialog(null, "Esta función se encuentra en desarrollo.");
-    }//GEN-LAST:event_mnuItemReportsActionPerformed
+    private void mnuItemRepDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepDepartmentActionPerformed
+        UploadData u = new UploadData();
+        u.UploadData(2);
+//        DataToExport d = new DataToExport();
+//        d.show();
+    }//GEN-LAST:event_mnuItemRepDepartmentActionPerformed
 
     private void mnuItemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemLogOutActionPerformed
         ManagerLoginUI m = new ManagerLoginUI();
@@ -274,11 +282,17 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     }//GEN-LAST:event_mnuItemListEditUsersActionPerformed
 
     private void mnuItemRepUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepUserActionPerformed
-        JOptionPane.showMessageDialog(null, "Esta función se encuentra en desarrollo.");
+        UploadData u = new UploadData();
+        u.UploadData(3);
+//        DataToExport d = new DataToExport();
+//        d.show();
     }//GEN-LAST:event_mnuItemRepUserActionPerformed
 
     private void mnuItemRepAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepAssetActionPerformed
-        JOptionPane.showMessageDialog(null, "Esta función se encuentra en desarrollo.");
+        UploadData u = new UploadData();
+        u.UploadData(4);
+//        DataToExport d = new DataToExport();
+//        d.show();
     }//GEN-LAST:event_mnuItemRepAssetActionPerformed
 
     private void mnuItemAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemAssetsActionPerformed
@@ -341,9 +355,9 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     private javax.swing.JMenuItem mnuItemLogOut;
     private javax.swing.JMenuItem mnuItemManageDep;
     private javax.swing.JMenuItem mnuItemRepAsset;
+    private javax.swing.JMenuItem mnuItemRepDepartment;
+    private javax.swing.JMenuItem mnuItemRepSessions;
     private javax.swing.JMenuItem mnuItemRepUser;
-    private javax.swing.JMenuItem mnuItemReports;
-    private javax.swing.JMenuItem mnuItemSessions;
     private javax.swing.JPanel panel_log;
     // End of variables declaration//GEN-END:variables
 
