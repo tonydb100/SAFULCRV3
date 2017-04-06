@@ -16,7 +16,8 @@ public class UploadData extends DataBaseConnection {
         switch(op){
             case 1:
                 //Sesiones
-                JOptionPane.showMessageDialog(null, "En desarrollo");
+                this.UploadDataSession(rd);
+                rd.show();
                 break;
             case 2:
                 //Departamentos
@@ -36,7 +37,7 @@ public class UploadData extends DataBaseConnection {
         }
     }
     
-    void UploadDataDepartment(DataToExport rd){
+    private void UploadDataDepartment(DataToExport rd){
         
         try{
             Connection Conn = this.ConnectToDb();
@@ -68,7 +69,7 @@ public class UploadData extends DataBaseConnection {
         
     }
     
-    void UploadDataAsset(DataToExport rd){
+    private void UploadDataAsset(DataToExport rd){
         
         try{
             Connection Conn = this.ConnectToDb();
@@ -101,7 +102,7 @@ public class UploadData extends DataBaseConnection {
         
     }
     
-    void UploadDataUser(DataToExport rd){
+    private void UploadDataUser(DataToExport rd){
         
         try{
             Connection Conn = this.ConnectToDb();
@@ -134,6 +135,37 @@ public class UploadData extends DataBaseConnection {
                 model.addRow(row);
             }
             rd.getTblData().setModel(model);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+    }
+
+    private void UploadDataSession(DataToExport rd) {
+        
+        try{
+            Connection Conn = this.ConnectToDb();
+            Statement sent;
+
+            String [] titles ={"Id", "Usuario", "Inicio", "Final"};
+            String sql="SELECT * FROM session";
+            model=new DefaultTableModel(null, titles);
+            sent=Conn.createStatement();
+            ResultSet rs=sent.executeQuery(sql);
+
+            String row []= new String [4];
+
+            while(rs.next()){
+                row [0]=rs.getString("session_id");
+                row [1]=rs.getString("session_username");
+                row [2]=rs.getString("session_start");
+                row [3]=rs.getString("session_end");
+                
+                model.addRow(row);
+
+            }
+            rd.getTblData().setModel(model);
+
         }catch(Exception e){
             e.printStackTrace();
         }

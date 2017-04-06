@@ -255,15 +255,11 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     private void mnuItemRepSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepSessionsActionPerformed
         UploadData u = new UploadData();
         u.UploadData(1);
-//        DataToExport d = new DataToExport();
-//        d.show();
     }//GEN-LAST:event_mnuItemRepSessionsActionPerformed
 
     private void mnuItemRepDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepDepartmentActionPerformed
         UploadData u = new UploadData();
         u.UploadData(2);
-//        DataToExport d = new DataToExport();
-//        d.show();
     }//GEN-LAST:event_mnuItemRepDepartmentActionPerformed
 
     private void mnuItemLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemLogOutActionPerformed
@@ -284,15 +280,11 @@ public class MainMenu extends javax.swing.JFrame implements ComponentListener {
     private void mnuItemRepUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepUserActionPerformed
         UploadData u = new UploadData();
         u.UploadData(3);
-//        DataToExport d = new DataToExport();
-//        d.show();
     }//GEN-LAST:event_mnuItemRepUserActionPerformed
 
     private void mnuItemRepAssetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemRepAssetActionPerformed
         UploadData u = new UploadData();
         u.UploadData(4);
-//        DataToExport d = new DataToExport();
-//        d.show();
     }//GEN-LAST:event_mnuItemRepAssetActionPerformed
 
     private void mnuItemAssetsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuItemAssetsActionPerformed
